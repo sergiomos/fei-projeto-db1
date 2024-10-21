@@ -1,3 +1,4 @@
+```mermaid
 erDiagram
     singers {
         int singer_id PK
@@ -48,9 +49,6 @@ erDiagram
     users ||--o{ playlist : "cria"
     playlists ||--o{ playlist_music : "contém"
     playlist_music ||--o{ playlist_music : "aparece em"
-
-
-
-
+```
  
 
