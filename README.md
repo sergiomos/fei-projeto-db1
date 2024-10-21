@@ -1,51 +1,51 @@
 erDiagram
-    Artista {
-        int id PK
-        string nome
-        date data_nascimento
+    singers {
+        int singer_id PK
+        string name
+        date birthday
     }
 
-    Disco {
-        int id PK
-        string titulo
-        date data_lancamento
-        int artista_id FK
+    discs {
+        int disc_id PK
+        string title
+        date launch_date
+        int singer_id FK
     }
 
-    Musica {
-        int id PK
-        string titulo
-        int duracao
-        int disco_id FK
+    musics {
+        int music_id PK
+        string title
+        int duration
+        int disc_id FK
     }
 
-    Artista_Musica {
-        int artista_id PK, FK
-        int musica_id PK, FK
+    singer_music {
+        int singer_id PK, FK
+        int music_id PK, FK
     }
 
-    Usuario {
-        int id PK
+    user {
+        int user_id PK
         string nome
         string email UNIQUE
         date data_registro
     }
 
-    Playlist {
-        int id PK
-        string titulo
-        int usuario_id FK
+    playlist {
+        int playlist_id PK
+        string title
+        int user_id FK
     }
 
-    Playlist_Musica {
+    playlist_music {
         int playlist_id PK, FK
-        int musica_id PK, FK
+        int music_id PK, FK
     }
 
-    Artista ||--o{ Disco : "possui"
-    Disco ||--o{ Musica : "contém"
-    Musica ||--o{ Artista_Musica : "é interpretada por"
-    Artista ||--o{ Artista_Musica : "interpreta"
-    Usuario ||--o{ Playlist : "cria"
-    Playlist ||--o{ Playlist_Musica : "contém"
-    Musica ||--o{ Playlist_Musica : "aparece em"
+    singer ||--o{ disc : "possui"
+    disc ||--o{ music : "contém"
+    music ||--o{ singer_music : "é interpretada por"
+    singer ||--o{ singer_music : "interpreta"
+    user ||--o{ playlist : "cria"
+    playlist ||--o{ playlist_music : "contém"
+    music ||--o{ playlist_music : "aparece em"
