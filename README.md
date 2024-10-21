@@ -24,28 +24,33 @@ erDiagram
         int music_id PK, FK
     }
 
-    user {
-        int user_id PK
-        string nome
-        string email UNIQUE
-        date data_registro
-    }
 
     playlist {
-        int playlist_id PK
-        string title
-        int user_id FK
-    }
-
+            int playlist_id PK
+            string title
+            int user_id FK
+        }
     playlist_music {
-        int playlist_id PK, FK
-        int music_id PK, FK
-    }
+            int playlist_id PK, FK
+            int music_id PK, FK
+        }
+    users {
+            int user_id PK
+            string name
+            string email UK
+            date birthday
+        }
 
-    singer ||--o{ disc : "possui"
-    disc ||--o{ music : "contém"
-    music ||--o{ singer_music : "é interpretada por"
-    singer ||--o{ singer_music : "interpreta"
-    user ||--o{ playlist : "cria"
-    playlist ||--o{ playlist_music : "contém"
-    music ||--o{ playlist_music : "aparece em"
+    singers ||--o{ disc : "possui"
+    discs ||--o{ music : "contém"
+    musics ||--o{ singer_music : "é interpretada por"
+    singer_music ||--o{ singer_music : "interpreta"
+    users ||--o{ playlist : "cria"
+    playlists ||--o{ playlist_music : "contém"
+    playlist_music ||--o{ playlist_music : "aparece em"
+
+
+
+
+ 
+
