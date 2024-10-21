@@ -1,3 +1,8 @@
+## Integrante
+Sérgio Martins de Oliveira Santos RA: 22.222.021-2
+
+## Modelo Entidade Relacionamento
+
 ```mermaid
 erDiagram
     singers {
@@ -26,7 +31,7 @@ erDiagram
     }
 
 
-    playlist {
+    playlists {
             int playlist_id PK
             string title
             int user_id FK
@@ -39,11 +44,11 @@ erDiagram
             int user_id PK
             string name
             string email UK
-            date birthday
+            date register_date
         }
 
-    singers ||--o{ disc : "possui"
-    discs ||--o{ music : "contém"
+    singers ||--o{ discs : "possui"
+    discs ||--o{ musics : "contém"
     musics ||--o{ singer_music : "é interpretada por"
     singer_music ||--o{ singer_music : "interpreta"
     users ||--o{ playlist : "cria"
