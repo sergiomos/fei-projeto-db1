@@ -1,16 +1,15 @@
 
-DROP DATABASE IF EXISTS spotify
+DROP DATABASE IF EXISTS spotify;
 CREATE DATABASE spotify;
 
 CREATE TABLE singers (
  singer_id INT PRIMARY KEY AUTO_INCREMENT,
  name VARCHAR(255) NOT NULL,
  birthday DATE NOT NULL,
+);
 
-)
-
-CREATE TABLE discs (
- disc_id INT PRIMARY KEY AUTO_INCREMENT,
+CREATE TABLE disks (
+ disk_id INT PRIMARY KEY AUTO_INCREMENT,
  title VARCHAR(255) NOT NULL,
  launch_date DATE NOT NULL,
  singer_id INT NOT NULL,
@@ -22,9 +21,9 @@ CREATE TABLE musics (
  music_id INT PRIMARY KEY AUTO_INCREMENT,
  title VARCHAR(255) NOT NULL,
  duration INT NOT NULL,
- disc_id INT,
+ disk_id INT,
 
- FOREIGN KEY (disc_id) REFERENCES discs(disc_id)
+ FOREIGN KEY (disk_id) REFERENCES disks(disk_id)
 )
 
 CREATE TABLE music_singer (
@@ -73,7 +72,7 @@ INSERT INTO singers (name, birthday) VALUES
 ('Isaac', '1997-02-14'),
 ('Jane', '1982-12-18');
 
-INSERT INTO discs (title, launch_date, singer_id) VALUES
+INSERT INTO disks (title, launch_date, singer_id) VALUES
 ('Dreamscapes', '2015-09-10', 1),
 ('Echoes of Time', '2013-06-25', 2),
 ('Firefly', '2018-11-15', 3),
@@ -85,7 +84,7 @@ INSERT INTO discs (title, launch_date, singer_id) VALUES
 ('Whispers', '2021-12-01', 9),
 ('Timeless', '2019-09-22', 10);
 
-INSERT INTO musics (title, duration, disc_id) VALUES
+INSERT INTO musics (title, duration, disk_id) VALUES
 ('Ocean Breeze', 300, 1),
 ('Waves', 180, 1),
 ('Dreaming', 240, 2),

@@ -1,0 +1,17 @@
+{
+  "name": "fei-projeto-db",
+  "version": "1.0.0",
+  "description": "Sérgio Martins de Oliveira Santos RA: 22.222.021-2",
+  "main": "gerarDados.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@faker-js/faker": "^9.0.3",
+    "dotenv": "^16.4.5",
+    "pg": "^8.13.0"
+  }
+}

@@ -11,8 +11,8 @@ erDiagram
         date birthday
     }
 
-    discs {
-        int disc_id PK
+    disks {
+        int disk_id PK
         string title
         date launch_date
         int singer_id FK
@@ -22,7 +22,7 @@ erDiagram
         int music_id PK
         string title
         int duration
-        int disc_id FK
+        int disk_id FK
     }
 
     singer_music {
@@ -47,8 +47,8 @@ erDiagram
             date register_date
         }
 
-    singers ||--o{ discs : "possui"
-    discs ||--o{ musics : "contém"
+    singers ||--o{ disks : "possui"
+    disks ||--o{ musics : "contém"
     musics ||--o{ singer_music : "é interpretada por"
     singer_music ||--o{ singer_music : "interpreta"
     users ||--o{ playlist : "cria"
